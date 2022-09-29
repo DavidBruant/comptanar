@@ -1,0 +1,30 @@
+{
+  "name": "comptanar",
+  "version": "1.0.0",
+  "description": "un produit pour faire des bilans officiels",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "ava tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pntbr/comptanar.git"
+  },
+  "keywords": [
+    "comptabilité",
+    "France",
+    "entreprise",
+    "société",
+    "impôts"
+  ],
+  "author": "collectif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pntbr/comptanar/issues"
+  },
+  "homepage": "https://github.com/pntbr/comptanar#readme",
+  "devDependencies": {
+    "ava": "^4.3.3"
+  }
+}
