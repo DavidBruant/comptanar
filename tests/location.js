@@ -1,0 +1,64 @@
+//@ts-check
+
+import test from 'ava';
+
+/*
+
+## Exemple 1 - on paye un loyer
+
+Compta d'une asso ("le chateau") qui donne des cours de clown
+L'asso loue un local à son propriétaire Lomepal
+Chaque mois, l'asso reçoit une facture pour la location du local
+
+Voilà comment ça se traduit comptablement
+
+1) On reçoit une facture de Lomepal
+2) On la paye
+
+### Plan comptable de l'asso (minimal nécessaire pour décrire cette transaction)
+
+401001 - Lomepal (fournisseur/proprio du chateau)
+512001 - Compte en banque de l'association
+613201 - Locations (le chateau)
+
+*/
+
+/** @type {RéceptionFactureFournisseur} */
+const réceptionFactureLomepal = {
+    type: "Réception facture fournisseur",
+    moment: new Date(),
+    identifiant: 'dtynjfykyu',
+    compteClient: '401001',
+    compteUsage: '613201',
+    montantHorsTaxe: 500,
+    montantTVA: 0
+}
+
+/** @type {PaiementFactureFournisseur} */
+const paiementFactureLomepal = {
+    type: "Paiement facture fournisseur",
+    moment: new Date(),
+    identifiant: 'mmrtlvril',
+    compteClient: '401001',
+    montant: 500
+}
+
+const opérationsHautNiveau = [
+    réceptionFactureLomepal,
+    paiementFactureLomepal
+]
+
+
+test('foo', t => {
+	const opérationsDeCompte = traduireOpérationsHautNiveauEnOpérationsDeCompte(opérationsHautNiveau)
+    const étatDesComptes = produireÉtatDesComptes(opérationsDeCompte)
+
+    t.is(étatDesComptes.get('613201'), 500)
+    t.is(étatDesComptes.get('401001'), 0)
+    t.is(étatDesComptes.get('512001'), -500)
+});
+
+test('bar', async t => {
+	const bar = Promise.resolve('bar');
+	t.is(await bar, 'bar');
+});

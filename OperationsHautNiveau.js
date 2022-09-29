@@ -18,7 +18,7 @@
  */
 
 /** @type {EnvoiFactureClient} */
-let y = {
+let op1 = {
     type: "Envoi facture client",
     moment: new Date(),
     identifiant: 'azer',
@@ -37,7 +37,7 @@ let y = {
  */
 
 /** @type {PaiementFactureClient} */
-let z = {
+let op2 = {
     type: "Paiement facture client",
     moment: new Date(),
     identifiant: 'azer',
@@ -45,16 +45,62 @@ let z = {
     montant: 60
 }
 
+/**
+ * @typedef {Object} SpécifiqueRéceptionFactureFournisseur
+ * @property {'Réception facture fournisseur'} type
+ * @property {string} compteClient
+ * @property {string} compteUsage
+ * @property {number} montantHorsTaxe
+ * @property {number} montantTVA
+ * 
+ * @typedef {BaseOpérationsHautNiveau & SpécifiqueRéceptionFactureFournisseur} RéceptionFactureFournisseur
+ */
+
+/** @type {RéceptionFactureFournisseur} */
+let op3 = {
+    type: "Réception facture fournisseur",
+    moment: new Date(),
+    identifiant: 'azuji,yhf,er',
+    compteClient: '402505161',
+    compteUsage: '9857852',
+    montantHorsTaxe: 50,
+    montantTVA: 10
+}
+
+/**
+ * @typedef {Object} SpécifiquePaiementFactureFournisseur
+ * @property {'Paiement facture fournisseur'} type
+ * @property {string} compteClient
+ * @property {number} montant
+ * 
+ * @typedef {BaseOpérationsHautNiveau & SpécifiquePaiementFactureFournisseur} PaiementFactureFournisseur
+ */
+
+/** @type {PaiementFactureFournisseur} */
+let op4 = {
+    type: "Paiement facture fournisseur",
+    moment: new Date(),
+    identifiant: 'azuji,yhf,er',
+    compteClient: '402505161',
+    montant: 50
+}
+
+
 
 /** 
     @typedef {
         EnvoiFactureClient | 
-        PaiementFactureClient 
+        PaiementFactureClient |
+        RéceptionFactureFournisseur |
+        PaiementFactureFournisseur
     } OpérationsHautNiveau 
 */
 
 /** @type {OpérationsHautNiveau} */
 let ophm;
 
-ophm = y;
-ophm = z;
+ophm = op1;
+ophm = op2;
+ophm = op3;
+
+
