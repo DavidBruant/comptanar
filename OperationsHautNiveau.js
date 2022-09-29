@@ -1,25 +1,25 @@
 //@ts-check
 
 /**
- * @typedef {Object} BaseOpérationHautNiveau
+ * @typedef {Object} BaseOpérationsHautNiveau
  * @property {string} identifiant
  * @property {string} type
  * @property {Date} moment
  */
 
 /**
- * @typedef {Object} SpécifiqueEmissionFactureClient
- * @property {'Émission facture client'} type
+ * @typedef {Object} SpécifiqueEnvoiFactureClient
+ * @property {'Envoi facture client'} type
  * @property {string} compteClient
  * @property {number} montantHorsTaxe
  * @property {number} montantTVA
  * 
- * @typedef {BaseOpérationHautNiveau & SpécifiqueEmissionFactureClient} EmissionFactureClient
+ * @typedef {BaseOpérationsHautNiveau & SpécifiqueEnvoiFactureClient} EnvoiFactureClient
  */
 
-/** @type {EmissionFactureClient} */
+/** @type {EnvoiFactureClient} */
 let y = {
-    type: "Émission facture client",
+    type: "Envoi facture client",
     moment: new Date(),
     identifiant: 'azer',
     compteClient: '402505161',
@@ -33,7 +33,7 @@ let y = {
  * @property {string} compteClient
  * @property {number} montant
  * 
- * @typedef {BaseOpérationHautNiveau & SpécifiquePaiementFactureClient} PaiementFactureClient
+ * @typedef {BaseOpérationsHautNiveau & SpécifiquePaiementFactureClient} PaiementFactureClient
  */
 
 /** @type {PaiementFactureClient} */
@@ -48,12 +48,12 @@ let z = {
 
 /** 
     @typedef {
-        EmissionFactureClient | 
+        EnvoiFactureClient | 
         PaiementFactureClient 
-    } OpérationHautNiveau 
+    } OpérationsHautNiveau 
 */
 
-/** @type {OpérationHautNiveau} */
+/** @type {OpérationsHautNiveau} */
 let ophm;
 
 ophm = y;
