@@ -1,54 +1,60 @@
 //@ts-check
 
-
-/** 
- * facture client émise, 
- * paiement facture par client, 
- * versement salaire, 
- * répartition bénéfice, 
- * déclaration TVA, etc. 
- *
- **/ 
-
 /**
  * @typedef {Object} BaseOpérationHautNiveau
  * @property {string} identifiant
  * @property {string} type
+ * @property {Date} moment
  */
-
-/** @type {BaseOpérationHautNiveau} */
-let x = {
-    identifiant: 'enhriovenjvrl',
-    type: 'yoooooooooooooooo'
-};
 
 /**
  * @typedef {Object} SpécifiqueEmissionFactureClient
+ * @property {'Émission facture client'} type
  * @property {string} compteClient
  * @property {number} montantHorsTaxe
  * @property {number} montantTVA
- */
-
-/**
+ * 
  * @typedef {BaseOpérationHautNiveau & SpécifiqueEmissionFactureClient} EmissionFactureClient
  */
 
 /** @type {EmissionFactureClient} */
 let y = {
-    compteClient: '402505161',
+    type: "Émission facture client",
+    moment: new Date(),
     identifiant: 'azer',
-    type: 'blabla',
+    compteClient: '402505161',
     montantHorsTaxe: 50,
     montantTVA: 10
 }
 
-
-
 /**
- * @typedef {Object} OpérationHautNiveau
- * @property {string} Prénom
- * @property {string} Nom
- * @property {string} modeContact
- * @property {string} contact
- * @property {string} lieu
+ * @typedef {Object} SpécifiquePaiementFactureClient
+ * @property {'Paiement facture client'} type
+ * @property {string} compteClient
+ * @property {number} montant
+ * 
+ * @typedef {BaseOpérationHautNiveau & SpécifiquePaiementFactureClient} PaiementFactureClient
  */
+
+/** @type {PaiementFactureClient} */
+let z = {
+    type: "Paiement facture client",
+    moment: new Date(),
+    identifiant: 'azer',
+    compteClient: '402505161',
+    montant: 60
+}
+
+
+/** 
+    @typedef {
+        EmissionFactureClient | 
+        PaiementFactureClient 
+    } OpérationHautNiveau 
+*/
+
+/** @type {OpérationHautNiveau} */
+let ophm;
+
+ophm = y;
+ophm = z;
