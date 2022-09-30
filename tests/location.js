@@ -26,21 +26,28 @@ Voilà comment ça se traduit comptablement
 /** @type {RéceptionFactureFournisseur} */
 const réceptionFactureLomepal = {
     type: "Réception facture fournisseur",
-    moment: new Date(),
-    identifiant: 'dtynjfykyu',
-    compteClient: '401001',
-    compteUsage: '613201',
-    montantHorsTaxe: 500,
-    montantTVA: 0
+    date: new Date(),
+    identifiantOpération: 'dtynjfykyu',
+    compteFournisseur: '401001',
+    opérations: [
+        {
+            compte: '613201',
+            montant: 500,
+            sens: 'Crédit'
+        }
+    ]
 }
 
 /** @type {PaiementFactureFournisseur} */
 const paiementFactureLomepal = {
     type: "Paiement facture fournisseur",
-    moment: new Date(),
-    identifiant: 'mmrtlvril',
-    compteClient: '401001',
-    montant: 500
+    date: new Date(),
+    identifiantOpération: 'mmrtlvril',
+    opérations: {
+        compte: '401001',
+        montant: 500,
+        sens: 'Débit'
+    }
 }
 
 const opérationsHautNiveau = [
