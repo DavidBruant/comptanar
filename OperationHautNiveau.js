@@ -1,7 +1,7 @@
 //@ts-check
 
 /**
- * @typedef {Object} Opération
+ * @typedef {Object} OpérationDeCompte
  * @property {string} compte
  * @property {number} montant
  * @property {'Crédit' | 'Débit'} sens
@@ -12,7 +12,7 @@
  * @property {string} identifiantOpération
  * @property {string} type
  * @property {Date} date
- * @property {Opération | Opération[]} opérations
+ * @property {OpérationDeCompte[]} opérations
  */
 
 /**
@@ -58,11 +58,13 @@ let op2 = {
     type: "Paiement facture client",
     date: new Date(),
     identifiantOpération: 'azer',
-    opérations: {
-        compte: '402505161',
-        montant: 60,
-        sens: 'Débit'
-    }
+    opérations: [
+        {
+            compte: '402505161',
+            montant: 60,
+            sens: 'Débit'
+        }
+    ]
     
 }
 
@@ -97,6 +99,7 @@ let op3 = {
 /**
  * @typedef {Object} SpécifiquePaiementFactureFournisseur
  * @property {'Paiement facture fournisseur'} type
+ * @property {string} compteBancaire
  * 
  * @typedef {BaseOpérationHautNiveau & SpécifiquePaiementFactureFournisseur} PaiementFactureFournisseur
  */
@@ -106,11 +109,14 @@ let op4 = {
     type: "Paiement facture fournisseur",
     date: new Date(),
     identifiantOpération: 'azuji,yhf,er',
-    opérations: {
-        compte: '402505161',
-        montant: 60,
-        sens: 'Débit'
-    }
+    compteBancaire: '58756',
+    opérations: [
+        {
+            compte: '402505161',
+            montant: 60,
+            sens: 'Débit'
+        }
+    ]
 }
 
 

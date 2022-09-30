@@ -26,5 +26,8 @@
   "homepage": "https://github.com/pntbr/comptanar#readme",
   "devDependencies": {
     "ava": "^4.3.3"
+  },
+  "dependencies": {
+    "d3-array": "^3.2.0"
   }
 }
