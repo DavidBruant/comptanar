@@ -3,8 +3,9 @@
 import test from 'ava';
 import {sum} from 'd3-array';
 
-
 import traduireOpérationsHautNiveauEnOpérationsDeCompte from '../traduireOpérationsHautNiveauEnOpérationsDeCompte.js';
+import produireÉtatDesComptes from '../produireÉtatDesComptes.js'
+
 
 /**
  * @param {any} t
@@ -98,10 +99,3 @@ test('Exemple 1 location', t => {
     t.is(étatDesComptes.get('401001'), 0)
     t.is(étatDesComptes.get('512001'), -500)
 });
-
-/*
-test('bar', async t => {
-	const bar = Promise.resolve('bar');
-	t.is(await bar, 'bar');
-});
-*/
