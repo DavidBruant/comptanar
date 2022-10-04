@@ -1,6 +1,7 @@
 //@ts-check
 
 import {sum} from 'd3-array';
+import './types.js'
 
 /**
  * @param {EnvoiFactureClient} efc  

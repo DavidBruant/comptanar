@@ -1,28 +1,11 @@
 //@ts-check
 
-/**
- * @typedef {Object} OpérationDeCompte
- * @property {string} compte
- * @property {number} montant
- * @property {'Crédit' | 'Débit'} sens
- */
+import './types.js'
 
 /**
- * @typedef {Object} BaseOpérationHautNiveau
- * @property {string} identifiantOpération
- * @property {string} type
- * @property {Date} date
- * @property {OpérationDeCompte[]} opérations
+ * Ce fichier n'existe que pour faire des tests de types statiques
  */
 
-/**
- * @typedef {Object} SpécifiqueEnvoiFactureClient
- * @property {'Envoi facture client'} type
- * @property {string} numéroFacture
- * @property {string} compteClient
- * 
- * @typedef {BaseOpérationHautNiveau & SpécifiqueEnvoiFactureClient} EnvoiFactureClient
- */
 
 /** @type {EnvoiFactureClient} */
 let op1 = {
@@ -45,13 +28,7 @@ let op1 = {
     ]
 }
 
-/**
- * @typedef {Object} SpécifiquePaiementFactureClient
- * @property {'Paiement facture client'} type
- * @property {string=} numéroFacture
- * 
- * @typedef {BaseOpérationHautNiveau & SpécifiquePaiementFactureClient} PaiementFactureClient
- */
+
 
 /** @type {PaiementFactureClient} */
 let op2 = {
@@ -68,13 +45,7 @@ let op2 = {
     
 }
 
-/**
- * @typedef {Object} SpécifiqueRéceptionFactureFournisseur
- * @property {'Réception facture fournisseur'} type
- * @property {string} compteFournisseur
- * 
- * @typedef {BaseOpérationHautNiveau & SpécifiqueRéceptionFactureFournisseur} RéceptionFactureFournisseur
- */
+
 
 /** @type {RéceptionFactureFournisseur} */
 let op3 = {
@@ -96,13 +67,6 @@ let op3 = {
     ]
 }
 
-/**
- * @typedef {Object} SpécifiquePaiementFactureFournisseur
- * @property {'Paiement facture fournisseur'} type
- * @property {string} compteBancaire
- * 
- * @typedef {BaseOpérationHautNiveau & SpécifiquePaiementFactureFournisseur} PaiementFactureFournisseur
- */
 
 /** @type {PaiementFactureFournisseur} */
 let op4 = {
@@ -121,14 +85,7 @@ let op4 = {
 
 
 
-/** 
-    @typedef {
-        EnvoiFactureClient | 
-        PaiementFactureClient |
-        RéceptionFactureFournisseur |
-        PaiementFactureFournisseur
-    } OpérationHautNiveau 
-*/
+
 
 /** @type {OpérationHautNiveau} */
 let ophm;

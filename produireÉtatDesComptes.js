@@ -1,5 +1,7 @@
 //@ts-check
 
+import './types.js'
+
 /**
  * Cette fonction retourne un résultat faux (certains comptes 5 sont des passifs)
  * mais suffisamment vrai
