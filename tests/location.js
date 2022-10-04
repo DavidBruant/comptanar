@@ -91,7 +91,7 @@ test('Exemple 1 location', t => {
 
 	const opérationsDeCompte = traduireOpérationsHautNiveauEnOpérationsDeCompte(opérationsHautNiveau)
 
-    console.log('opérationsDeCompte', opérationsDeCompte)
+    //console.log('opérationsDeCompte', opérationsDeCompte)
 
     équilibreCréditDébit(t, opérationsDeCompte);
     
