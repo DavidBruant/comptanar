@@ -42,6 +42,12 @@ function isCharge(compte){
 
 
 /**
+ * 
+Un compte d’actif augmente avec un débit et diminue avec un crédit.
+Un compte de passif augmente avec un crédit diminue avec un débit.
+Un compte de charges augmente avec un débit diminue avec un crédit.
+Un compte de produits augmente avec un crédit diminue avec un débit.
+
  * @param {OpérationDeCompte[]} opérationsDeCompte 
  * @returns {Map<string, number>}
  */
