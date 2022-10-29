@@ -1,3 +1,4 @@
+//@ts-check
 
 import { writeFile, unlink, readFile } from 'node:fs/promises';
 import {join} from 'node:path';
@@ -15,19 +16,23 @@ export default (directory) => {
             return writeFile(filename, `# Fichier d'opérations haut niveau\n\n`)
         },
         deleteFile(){
-            return Promise.resolve()
+            //return Promise.resolve()
             
-            //return unlink(filename)
+            return unlink(filename)
         },
-        addOpérations(opérations){
-            return readFile(filename, 'utf-8')
-                .then(parse)
-                .then(content => {
-                    const newOpérations = (content || []).concat(opérations)
-                    const str = stringify(newOpérations)
+        /**
+         * 
+         * @param {OpérationHautNiveau[]} opérations 
+         * @returns {Promise<void>} 
+         */
+        async addOpérations(opérations){
+            const src = await readFile(filename, 'utf-8');
+            const content = await parse(src);
 
-                    return writeFile(filename, str)
-                })
+            /** @type {OpérationHautNiveau[]} */
+            const newOpérations = (content || []).concat(opérations);
+            const str = stringify(newOpérations);
+            return writeFile(filename, str);
         }
 
     })
