@@ -8,7 +8,7 @@ import {dirSync} from 'tmp'
 
 import '../types.js'
 
-import FichierOpérationsHautNiveau from '../fichierOpérationsHautNiveau.js'
+import FichierOpérationsCompte from '../fichierOpérationsCompte.js'
 
 
 /**
@@ -24,7 +24,7 @@ function isComptaFileContext(context){
 test.beforeEach(t => {
     const {name: tmpDir} = dirSync();
 
-    const fichier = FichierOpérationsHautNiveau(tmpDir)
+    const fichier = FichierOpérationsCompte(tmpDir)
 
     fichier.createFile()
 
@@ -45,7 +45,7 @@ test.afterEach(t => {
 });
 
 
-test(`Création fichier d'opérations haut niveau`, t => {
+test(`Création fichier d'opérations de compte`, t => {
 
     if(!isComptaFileContext(t.context)) throw `t.context n'a pas les bonnes propriétés`;
 
@@ -68,34 +68,20 @@ test(`Écriture dans fichier existant`, t => {
 
     const {fichier} = t.context;
 
-    /** @type {EnvoiFactureClient} */
+    /** @type {OpérationDeCompte} */
     let opération = {
-        type: "Envoi facture client",
-        date: new Date(),
-        identifiantOpération: 'azer',
-        numéroFacture: 'F2022-10-001',
-        compteClient: '402563',
-        opérations: [
-            {
-                compte: '602561',
-                montant: 50,
-                sens: 'Débit'
-            },
-            {
-                compte: '44566', // TVA
-                montant: 10,
-                sens: 'Débit'
-            }
-        ]
+        compte: '602561',
+        montant: 50,
+        sens: 'Débit'
     }
 
     return fichier.addOpérations([opération])
         .then(async () => {
             const contenu = await readFile(fichier.filename, `utf-8`)
 
-            t.regex(contenu, /Envoi facture client/, `le contenu contient "Envoi facture client"`)
+            t.regex(contenu, /compte/, `le contenu contient "compte"`)
             t.regex(contenu, /602561/, `le contenu contient "602561"`)
-            t.regex(contenu, /F2022-10-001/, `le contenu contient "F2022-10-001"`)
+            t.regex(contenu, /Débit/, `le contenu contient "Débit"`)
         })
         .then(() => t.pass())
 });
