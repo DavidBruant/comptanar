@@ -5,6 +5,7 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
+    "start": "serve",
     "test": "ava tests"
   },
   "repository": {
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/pntbr/comptanar#readme",
   "devDependencies": {
     "ava": "^4.3.3",
+    "serve": "^14.1.1",
     "tmp": "^0.2.1"
   },
   "dependencies": {
