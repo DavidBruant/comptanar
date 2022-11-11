@@ -13,7 +13,7 @@ export default (directory) => {
         filename,
 
         createFile(){
-            return writeFile(filename, `# Fichier d'opérations haut niveau\n\n`)
+            return writeFile(filename, `# Fichier d'opérations de compte\n\n`)
         },
         deleteFile(){
             //return Promise.resolve()
