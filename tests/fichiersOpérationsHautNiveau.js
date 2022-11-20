@@ -6,10 +6,9 @@ import { constants } from 'node:fs';
 import test from 'ava';
 import {dirSync} from 'tmp'
 
-import '../types.js'
+import '../source/format-données/types.js'
 
-import FichierOpérationsHautNiveau from '../fichierOpérationsHautNiveau.js'
-
+import FichierOpérationsHautNiveau from '../source/format-données/fichierOpérationsHautNiveau.js'
 
 /**
  * 

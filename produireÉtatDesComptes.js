@@ -1,6 +1,6 @@
 //@ts-check
 
-import './types.js'
+import './source/format-données/types.js'
 
 /**
  * Cette fonction retourne un résultat faux (certains comptes 5 sont des passifs)

@@ -6,9 +6,9 @@ import { constants } from 'node:fs';
 import test from 'ava';
 import {dirSync} from 'tmp'
 
-import '../types.js'
+import '../source/format-données/types.js'
 
-import FichierOpérationsCompte from '../fichierOpérationsCompte.js'
+import FichierOpérationsCompte from '../source/format-données/fichierOpérationsCompte.js'
 
 
 /**

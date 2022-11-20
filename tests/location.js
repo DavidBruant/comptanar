@@ -3,7 +3,7 @@
 import test from 'ava';
 import {sum} from 'd3-array';
 
-import '../types.js'
+import '../source/format-données/types.js'
 
 import traduireOpérationsHautNiveauEnOpérationsDeCompte from '../traduireOpérationsHautNiveauEnOpérationsDeCompte.js';
 import produireÉtatDesComptes from '../produireÉtatDesComptes.js'
