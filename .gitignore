@@ -1,0 +1,7 @@
+node_modules
+
+
+# Pour le moment, on ne versionne aucun fichier de données
+données
+
+build
