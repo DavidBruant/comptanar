@@ -2,6 +2,8 @@
 
 import { access, readFile, rmdir } from 'node:fs/promises';
 import { constants } from 'node:fs';
+import { join } from 'node:path';
+
 
 import test from 'ava';
 import {dirSync} from 'tmp'
@@ -9,6 +11,8 @@ import {dirSync} from 'tmp'
 import '../source/format-données/types.js'
 
 import FichierOpérationsCompte from '../source/format-données/fichierOpérationsCompte.js'
+
+const OPERATION_COMPTE_FILENAME = 'OpérationsCompte.yml'
 
 
 /**
@@ -24,7 +28,9 @@ function isComptaFileContext(context){
 test.beforeEach(t => {
     const {name: tmpDir} = dirSync();
 
-    const fichier = FichierOpérationsCompte(tmpDir)
+    const filename = join(tmpDir, OPERATION_COMPTE_FILENAME)
+
+    const fichier = FichierOpérationsCompte(filename)
 
     fichier.createFile()
 

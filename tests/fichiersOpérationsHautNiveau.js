@@ -2,6 +2,7 @@
 
 import { access, readFile, rmdir } from 'node:fs/promises';
 import { constants } from 'node:fs';
+import { join } from 'node:path';
 
 import test from 'ava';
 import {dirSync} from 'tmp'
@@ -9,6 +10,8 @@ import {dirSync} from 'tmp'
 import '../source/format-données/types.js'
 
 import FichierOpérationsHautNiveau from '../source/format-données/fichierOpérationsHautNiveau.js'
+
+const OPERATION_HAUT_NIVEAU_FILENAME = 'OpérationsHautNiveau.yml'
 
 /**
  * 
@@ -23,7 +26,9 @@ function isComptaFileContext(context){
 test.beforeEach(t => {
     const {name: tmpDir} = dirSync();
 
-    const fichier = FichierOpérationsHautNiveau(tmpDir)
+    const filename = join(tmpDir, OPERATION_HAUT_NIVEAU_FILENAME)
+
+    const fichier = FichierOpérationsHautNiveau(filename)
 
     fichier.createFile()
 

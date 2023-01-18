@@ -1,13 +1,10 @@
 //@ts-check
 
 import { writeFile, unlink, readFile } from 'node:fs/promises';
-import {join} from 'node:path';
 import { parse, stringify } from 'yaml'
 
-const OPERATION_COMPTE_FILENAME = 'OpérationsCompte.yml'
 
-export default (directory) => {
-    const filename = join(directory, OPERATION_COMPTE_FILENAME)
+export default (filename) => {
 
     return Object.freeze({
         filename,

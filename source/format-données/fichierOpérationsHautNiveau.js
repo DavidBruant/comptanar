@@ -1,13 +1,10 @@
 //@ts-check
 
 import { writeFile, unlink, readFile } from 'node:fs/promises';
-import {join} from 'node:path';
 import { parse, stringify } from 'yaml'
 
-const OPERATION_HAUT_NIVEAU_FILENAME = 'OpérationsHautNiveau.yml'
 
-export default (directory) => {
-    const filename = join(directory, OPERATION_HAUT_NIVEAU_FILENAME)
+export default (/** @type {import("fs").PathLike | import("fs/promises").FileHandle} */ filename) => {
 
     return Object.freeze({
         filename,
