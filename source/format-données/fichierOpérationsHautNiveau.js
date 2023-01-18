@@ -4,7 +4,7 @@ import { writeFile, unlink, readFile } from 'node:fs/promises';
 import { parse, stringify } from 'yaml'
 
 
-export default (/** @type {import("fs").PathLike | import("fs/promises").FileHandle} */ filename) => {
+export default (/** @type {import("fs").PathLike} */ filename) => {
 
     return Object.freeze({
         filename,
@@ -30,7 +30,15 @@ export default (/** @type {import("fs").PathLike | import("fs/promises").FileHan
             const newOpérations = (content || []).concat(opérations);
             const str = stringify(newOpérations);
             return writeFile(filename, str);
-        }
+        },
 
+        /**
+         * 
+         * @returns {Promise<OpérationHautNiveau[]>}
+         */
+        async getOpérations(){
+            const src = await readFile(filename, 'utf-8');
+            return await parse(src); 
+        }
     })
 }
