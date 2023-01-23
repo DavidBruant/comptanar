@@ -1,0 +1,12 @@
+- compte: "401001"
+  montant: 500
+  sens: Crédit
+- compte: "613201"
+  montant: 500
+  sens: Débit
+- compte: "512001"
+  montant: 500
+  sens: Crédit
+- compte: "401001"
+  montant: 500
+  sens: Débit
