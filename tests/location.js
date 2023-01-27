@@ -5,8 +5,8 @@ import {sum} from 'd3-array';
 
 import '../source/format-données/types.js'
 
-import traduireOpérationsHautNiveauEnOpérationsDeCompte from '../traduireOpérationsHautNiveauEnOpérationsDeCompte.js';
-import produireÉtatDesComptes from '../produireÉtatDesComptes.js'
+import traduireOpérationsHautNiveauEnOpérationsDeCompte from '../source/format-données/traduireOpérationsHautNiveauEnOpérationsDeCompte.js';
+import produireÉtatDesComptes from '../source/produireÉtatDesComptes.js'
 
 
 /**

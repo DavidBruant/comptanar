@@ -1,6 +1,6 @@
 {
   "name": "comptanar",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "un produit pour faire des bilans officiels",
   "type": "module",
   "main": "main.js",
@@ -9,6 +9,9 @@
     "test": "ava tests",
     "build": "rollup -c",
     "dev": "rollup -c -w"
+  },
+  "bin": {
+    "etat-des-comptes": "executables/etat-des-comptes.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +48,7 @@
     "tmp": "^0.2.1"
   },
   "dependencies": {
+    "commander": "^10.0.0",
     "d3-array": "^3.2.0",
     "d3-dsv": "^3.0.1",
     "d3-fetch": "^3.0.1",
