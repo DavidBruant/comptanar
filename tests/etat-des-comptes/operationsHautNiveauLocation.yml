@@ -1,5 +1,5 @@
 - type: Réception facture fournisseur
-  date: 2023-01-18T14:56:57.707Z
+  date: 2023-01-27T12:47:07.422Z
   identifiantOpération: dtynjfykyu
   compteFournisseur: "401001"
   opérations:
@@ -7,7 +7,7 @@
       montant: 500
       sens: Débit
 - type: Paiement facture fournisseur
-  date: 2023-01-18T14:56:57.707Z
+  date: 2023-01-27T12:47:07.422Z
   identifiantOpération: mmrtlvril
   compteBancaire: "512001"
   opérations:

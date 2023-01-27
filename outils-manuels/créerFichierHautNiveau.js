@@ -1,6 +1,8 @@
 //@ts-check
 
-import FichierOpérationsHautNiveau from '../source/format-données/fichierOpérationsHautNiveau.js'
+import {writeFile} from 'node:fs/promises'
+
+import {stringifyOpérationsHautNiveauYaml} from '../source/format-données/opérationsHautNiveau.js'
 import '../source/format-données/types.js'
 
 const PATH = 'tests/etat-des-comptes/operationsHautNiveauLocation.yml'
@@ -35,7 +37,6 @@ const données = [
     }
 ]
 
-const f = FichierOpérationsHautNiveau(PATH);
-f.addOpérations(données)
+await writeFile(PATH, stringifyOpérationsHautNiveauYaml(données))
 
 console.log(`ayé, créé le fichier ${PATH} avec les bonnes données`)
