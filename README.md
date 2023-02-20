@@ -12,15 +12,15 @@ L'objectif c'est de montrer ce qu'il faut déclarer aux impôts.
 
 ### Creation d'instance
 
-Depuis le site comptanar centrale, on demande à ouvrir une instance à partir de son compte Github.
-En passant toctoctoc, on fil les clefs pour pouvoir créer un repo dans lequel il y aura
+Depuis le site comptanar centrale (genre `https://comptanar.fr/`), on demande à ouvrir une instance à partir de son compte Github.
+En passant toctoctoc, on file les clefs pour pouvoir créer un repo github dans lequel il y aura
 - les fichiers de données 
 - le code source pour l'interaction avec ces données
 
 Les fichiers de données seront exposé dans la branche principale.
 Le code source pour l'interaction sera lui dans une autre branche.
 
-La branche du code source sere celle utilisé pour le déploiement avec GithubPages.
+La branche du code source sere celle utilisé pour le déploiement avec GithubPages sur genre `https://mon-orga.github.io/comptabilite`.
 
 Un `github workflow` sur l'instance générée permet de maintenir le code source à jour.
 
@@ -71,3 +71,31 @@ executables/écritures-comptables.js < ./tests/etat-des-comptes/operationsHautNi
 
 Y'a des outils pour aider dans le dossier [`outils-manuels`](outils-manuels)
 
+Installer l'application
+
+```sh
+npm install
+```
+
+Démarrer le serveur de l'instance principale
+
+```sh
+npm start
+```
+Lancer les tests
+
+```sh
+npm run test
+```
+
+Lancer un build
+
+```sh
+npm run build
+```
+
+Lancer le serveur de dev
+
+```sh
+npm run dev
+```

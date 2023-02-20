@@ -4,6 +4,7 @@
   "description": "un produit pour faire des bilans officiels",
   "type": "module",
   "main": "main.js",
+  "engines" : { "node" : ">=16" },
   "scripts": {
     "start": "serve",
     "test": "ava tests",
