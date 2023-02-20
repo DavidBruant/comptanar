@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" href="data:,">
+
+    <title>🏴‍☠️ Compt'anar</title>
+    
+    <meta name="description" content=" ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link crossorigin="anonymous" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/twbs/bootstrap@v4/dist/css/bootstrap-reboot.css">
+    
+    <style>
+        /*
+        Repeating the background mostly makes sense in the <body>. Otherwise, people usually want the image and preferably its center (not the top-right corner)
+        */
+        *:not(body) {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        /*
+        In applications, there can be lists but HTML lists have bullet points and a bunch of useless styling attributes 
+        */
+        ul, ol, menu {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, menu {
+            list-style: none;
+        }
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* buttons are clickable */
+        button{
+            cursor: pointer;
+        }
+
+        /* i find default iframe borders ugly */
+        iframe{
+            border: 0;
+        }
+
+        * {
+            border-collapse: collapse;
+        }
+
+        /* contain feels like a better default than fill (which stretches the image)*/
+        img{
+            object-fit: contain;
+        }
+
+
+        label{
+            display: flex;
+        }
+
+        summary > * {
+            display: inline-flex;
+        }
+
+        details details{
+            margin-left: 1rem;
+        }
+
+    </style>
+
+    <style>
+        /* Typography. Adapted from https://github.com/etalab/template.data.gouv.fr/blob/7674ae351d44b46d9a8b7b4a41d491275f1c8861/src/css/base/typography.css (MIT licence) */
+        body {
+            font-family: "Source Sans Pro", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1:first-child,
+        h2:first-child,
+        h3:first-child,
+        h4:first-child,
+        h5:first-child,
+        h6:first-child {
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 2em;
+            line-height: 1.125em;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            line-height: 1.25em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            line-height: 1.5em;
+        }
+
+        h4 {
+            font-size: 1.25em;
+        }
+
+        h5 {
+            font-size: 1.125em;
+        }
+
+        h6 {
+            font-size: 1em;
+        }
+
+    </style>
+
+    <style>
+        /* Layout */
+        body > * {
+            width: 100%;
+            padding: 0 calc( max(5px, ( 100vw - 50em ) / 2 ));
+        }
+
+        main{
+            min-height: 60vh;
+        }
+
+        header{
+            background-color: #141;
+            color: antiquewhite;
+
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer{
+            background-color: #141;
+            color: antiquewhite;
+
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        footer{
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer a {
+            color: inherit;
+        }
+
+    </style>
+    
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default%2Ces2015%2Ces2016%2Ces2017%2Ces2018%2Ces2019%2Ces5%2Ces6%2Ces7%2CString.prototype.replaceAll"></script>
+
+<script>
+  // adapted from https://github.com/ungap/promise-all-settled/blob/ed43b3d9bc2027789c4388aff198141b4feb8f04/esm/index.js (ISC licence)
+  if(!Promise.allSettled){
+    Promise.allSettled = function ($) {'use strict';
+      var self = this;
+      return self.all(
+        $.map(
+          function (value) {
+            return self.resolve(value).then(this.$, this._);
+          },
+          {
+            $: function (value) {
+              return {status: 'fulfilled', value: value};
+            },
+            _: function (reason) {
+              return {status: 'rejected', reason: reason};
+            }
+          }
+        )
+      );
+    };
+  }
+
+</script>
+
+<script defer src="./build/bundle.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <h1>🏴‍☠️ Compt'anar 🤓 🔢</h1>
+    </header>
+
+    <main>
+
+        <section>
+            <details open>
+                <summary>
+                    <h2>Comptabilité individuelle</h2>
+                </summary>
+
+                <details open>
+                    <summary>
+                        <h3>Répartition des opérations bancaires</h3>
+                    </summary>
+
+                    <label>
+                        Import du fichier de relevé bancaire en csv
+                        <input type="file">
+                        
+                    </label>
+                    
+                    <details>
+                        <summary>
+                            ✅ / ❌
+                        </summary>
+                        Dans ce fichier, il y a <strong>57</strong> opérations 
+                        du <strong>1er juillet 2022</strong> au 
+                        <strong>25 septembre 2022</strong>
+                    </details>
+                    
+                    <div>
+                        <ul>
+                            <li>Pour le tableau et l'historique, on créé des sections 
+                                par années puis par mois</li>
+                        </ul>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Montant TTC</th>
+                                <th>TVA</th>
+                                <th>Montant HT</th>
+                                <th>Qui</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2020-11-03 16:01:14</td>
+                                <td>SCOPYLEFT - fact 2 ecosanté</td>
+                                <td>15720,00 €</td>
+                                <td>
+                                    <select>
+                                        <option>0%</option>
+                                        <option>5,5%</option>
+                                        <option>10%</option>
+                                        <option selected>20%</option>
+                                        <option>manuel</option>
+                                    </select>
+                                </td>
+                                <td>13100,00 €</td>
+                                <td>
+                                    <select>
+                                        <option selected>David</option>
+                                        <option>Sabine</option>
+                                        <option>Maïtané</option>
+                                        <option>Erick</option>
+                                        <option>Commun</option>
+                                        <option>TVA</option>
+                                        <option>à répartir</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2020-11-05 10:06:15</td>
+                                <td>CONDILLAC EXPERTISE - bilan</td>
+                                <td style="color: brown;">
+                                    -594,00 €
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>0%</option>
+                                        <option>5,5%</option>
+                                        <option>10%</option>
+                                        <option selected>20%</option>
+                                        <option>manuel</option>
+                                    </select>
+                                </td>
+                                <td style="color: brown;">
+                                    -495,00 €
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>David</option>
+                                        <option>Sabine</option>
+                                        <option>Maïtané</option>
+                                        <option>Erick</option>
+                                        <option selected>Commun</option>
+                                        <option>TVA</option>
+                                        <option>à répartir</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </details>
+
+
+                <details>
+                    <summary>
+                        <h3>Pour Maïtané</h3>
+                    </summary>
+
+                    <label>
+                        Coût total du salaire mensuel pour l'Échappée Belle
+                        <input type="number" min="0">
+
+                    </label>
+
+                    <label>
+                        Total de mes dépenses et recettes
+                        <input type="number">
+
+                    </label>
+
+                    Et donc, on pourrait se dire qu'il me reste <strong>XX</strong> 
+                    mois de salaires payables par mes recettes dans l'Échappée Belle 
+
+                </details>
+
+                <details>
+                    <summary>
+                        <h3>Pour David</h3>
+                    </summary>
+
+                    <label>
+                        Coût total du salaire mensuel pour l'Échappée Belle
+                        <input type="number" min="0">
+
+                    </label>
+
+                    <label>
+                        Total de mes dépenses et recettes
+                        <input type="number">
+
+                    </label>
+
+                    Et donc, on pourrait se dire qu'il me reste <strong>XX</strong> 
+                    mois de salaires payables par mes recettes dans l'Échappée Belle 
+
+                </details>
+
+                <details>
+                    <summary>
+                        <h3>Pour Sabine</h3>
+                    </summary>
+
+                    <label>
+                        Coût total du salaire mensuel pour l'Échappée Belle
+                        <input type="number" min="0">
+
+                    </label>
+
+                    <label>
+                        Total de mes dépenses et recettes
+                        <input type="number">
+
+                    </label>
+
+                    Et donc, on pourrait se dire qu'il me reste <strong>XX</strong> 
+                    mois de salaires payables par mes recettes dans l'Échappée Belle 
+
+                </details>
+
+                <details>
+                    <summary>
+                        <h3>Pour Erick</h3>
+                    </summary>
+
+                    <label>
+                        Coût total du salaire mensuel pour l'Échappée Belle
+                        <input type="number" min="0">
+
+                    </label>
+
+                    <label>
+                        Total de mes dépenses et recettes
+                        <input type="number">
+
+                    </label>
+
+                    Et donc, on pourrait se dire qu'il me reste <strong>XX</strong> 
+                    mois de salaires payables par mes recettes dans l'Échappée Belle 
+
+                </details>
+
+            </details>
+
+            <details>
+                <summary>
+                    <h2>Notes de frais</h2>
+                </summary>
+            </details>
+
+            <details>
+                <summary>
+                    <h2>Factures</h2>
+                </summary>
+            </details>
+
+            <details>
+                <summary>
+                    <h2>Compte de résultat et bilan comptable</h2>
+                </summary>
+            </details>
+
+            <details>
+                <summary>
+                    <h2>Fiches de paie et paiement des salaires</h2>
+                </summary>
+
+                <details>
+                    <summary>
+                        <h3>Pour Maïtané</h3>
+                    </summary>
+
+                    <label>
+                        Coût total du salaire mensuel pour l'Échappée Belle
+                        <input type="number" value="2100">
+
+                    </label>
+
+                    <label>
+                        Salaire net
+                        <input type="number" value="1600">
+
+                    </label>
+
+                    <label>
+                        Cotisations
+                        <input type="number" value="300">
+
+                    </label>
+
+                    <label>
+                        Frais de télétravail
+                        <input type="number" value="50">
+
+                    </label>
+
+                </details>
+            </details>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+        <!--
+            <a href=/resto-dernieres-carbo/a-propos>La démarche du restaurant</a>
+            <a href=/resto-dernieres-carbo/l-equipe>L'équipe</a>
+            <a href="https://github.com/DavidBruant/resto-dernieres-carbo">le code source de ce site web sur github</a>
+        -->
+    </footer>
+
+</body>
+</html>
